@@ -1,0 +1,6 @@
+<ng-container *ngIf="trainers$ | async as trainers">
+  <div *ngFor="let trainer of trainers" class="class-container">
+    <img src="assets/images/placeholder.jpg" />
+    {{ trainer.name }}
+  </div>
+</ng-container>

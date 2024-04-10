@@ -1,0 +1,6 @@
+<ng-container *ngIf="classes$ | async as classes">
+  <div *ngFor="let class of classes" class="class-container">
+    <img src="assets/images/placeholder.jpg" />
+    {{ class.name }}
+  </div>
+</ng-container>

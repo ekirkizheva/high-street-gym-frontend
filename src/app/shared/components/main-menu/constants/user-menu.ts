@@ -6,13 +6,18 @@ export const userNavMenu: MenuItem[] = [{
     mobileOnly: false
 },
 {
-    name: "Products",
-    url: "/products",
+    name: "Classes",
+    url: "/classes",
     mobileOnly: false
 },
 {
-    name: "My Account",
-    url: "/account",
+    name: "Trainers",
+    url: "/trainers",
+    mobileOnly: false
+},
+{
+    name: "Timetable",
+    url: "/timetable",
     mobileOnly: false
 },
 {
@@ -23,15 +28,5 @@ export const userNavMenu: MenuItem[] = [{
 {
     name: "Login",
     url: "/login",
-    mobileOnly: true
-},
-{
-    name: "Shortlist",
-    url: "/shortist",
-    mobileOnly: true
-},
-{
-    name: "Shopping Cart",
-    url: "/cart",
     mobileOnly: true
 }];
