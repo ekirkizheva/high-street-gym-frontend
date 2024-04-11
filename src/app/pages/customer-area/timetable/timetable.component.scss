@@ -1,0 +1,18 @@
+table {
+    border: 1px solid black;
+    width: 100%;
+    table-layout: fixed;
+}
+
+th {
+    padding: 0.5rem;
+    background-color: aliceblue;
+}
+
+tr {
+    height: 4rem;
+}
+
+td {
+    border: 1px dotted grey;
+}

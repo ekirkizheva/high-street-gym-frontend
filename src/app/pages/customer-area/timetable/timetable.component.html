@@ -1,0 +1,32 @@
+<ng-container *ngIf="timetable$ | async as timetable">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let day of daysOfWeek">
+          {{ day.name ? day.name : "&nbsp;" }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let time of timeOfTheDay">
+        <td *ngFor="let day of daysOfWeek">
+          <ng-container *ngIf="day.id === 0"> {{ time.label }} </ng-container>
+          <ng-container *ngIf="day.id !== 0">
+            <div
+              *ngIf="
+                getEvent(timetable, day.id, time.time) as event;
+                else emptyCell
+              "
+            >
+              {{ event.duration }}min
+              <strong>{{ event.class.name }}</strong> with
+              {{ event.trainer.name }}
+            </div>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<ng-template #emptyCell> &nbsp; </ng-template>

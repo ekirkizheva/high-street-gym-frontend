@@ -5,6 +5,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TimetableComponent } from './timetable/timetable.component';
 import { TrainersComponent } from './trainers/trainers.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'not-found', component: NotFoundComponent, data: { banner: false, header: false, footer: false } },
   { path: 'classes', component: ClassesComponent },
   { path: 'trainers', component: TrainersComponent },
+  { path: 'timetable', component: TimetableComponent },
   { path: 'account', component: AccountComponent },
   { path: 'contacts', component: ContactsComponent },
 ]
