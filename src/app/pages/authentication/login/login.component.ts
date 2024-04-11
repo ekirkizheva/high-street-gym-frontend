@@ -25,7 +25,6 @@ export class LoginComponent {
     ) { }
 
   onSubmit() {
-
     this.identity.login(
       this.loginForm.get('username')?.value!,
       this.loginForm.get('password')?.value!

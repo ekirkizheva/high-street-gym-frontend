@@ -43,6 +43,10 @@ export class IdentityService {
       take(1));
   }
 
+  signup(firstname: string, lastname: string, username: string, password: string): Observable<any> {
+    return this.http.post<any>('/api/signup', {firstName: firstname, lastName: lastname, username, user_password: password})
+  }
+
   get user$(): Observable<User> {
     return this.user.asObservable();
   }
