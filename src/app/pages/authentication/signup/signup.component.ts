@@ -26,18 +26,20 @@ export class SignupComponent {
     ) { }
 
     onSubmit() {
-      this.identity.signup(
-        this.signupForm.get('firstname')?.value!,
-        this.signupForm.get('lastname')?.value!,
-        this.signupForm.get('username')?.value!,
-        this.signupForm.get('password')?.value!
-      ).pipe(
-        take(1),
-        switchMap(() => this.identity.login(this.signupForm.get('username')?.value!, this.signupForm.get('password')?.value!)),
-        catchError((error) => {
-          this.error = 'Something went wrong';
-          throw error;
-        }),
-      ).subscribe(() => this.router.navigate(['/']));
+      if(this.signupForm.valid) {
+        this.identity.signup(
+          this.signupForm.get('firstname')?.value!,
+          this.signupForm.get('lastname')?.value!,
+          this.signupForm.get('username')?.value!,
+          this.signupForm.get('password')?.value!
+        ).pipe(
+          take(1),
+          switchMap(() => this.identity.login(this.signupForm.get('username')?.value!, this.signupForm.get('password')?.value!)),
+          catchError((error) => {
+            this.error = 'Something went wrong';
+            throw error;
+          }),
+        ).subscribe(() => this.router.navigate(['/']));
+      }
     }
 }

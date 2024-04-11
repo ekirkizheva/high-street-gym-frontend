@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { BehaviorSubject, Observable, switchMap, take } from 'rxjs';
+import { Blog, BlogService } from './blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+
+  blog$: Observable<Blog[]>;
+  refreshSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  
+  blogForm = this.fb.group({
+    message: ['', Validators.required],
+  });
+
+  constructor(
+    private fb: FormBuilder,
+    private blogService: BlogService) {
+    this.blog$ = this.refreshSubject$.pipe(switchMap(() => this.blogService.blog$));
+  }
+
+  onSubmit() {
+    if(this.blogForm.valid) {
+      this.blogService.postBlog$(this.blogForm.get('message')?.value!).pipe(take(1)).subscribe(() => {
+        this.refreshSubject$.next(true);
+        this.blogForm.reset();
+      });
+    }
+  }
 }

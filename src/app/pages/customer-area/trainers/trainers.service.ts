@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class TrainersService {
   constructor(private http: HttpClient) { }
 
-  get trainers$(): Observable<{name: string}> {
-    return this.http.get<{name: string}>('/api/public/trainers');
+  get trainers$(): Observable<{name: string}[]> {
+    return this.http.get<{name: string}[]>('/api/public/trainers');
   }
 }

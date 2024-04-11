@@ -8,7 +8,7 @@ import { TrainersService } from './trainers.service';
   styleUrls: ['./trainers.component.scss']
 })
 export class TrainersComponent {
-  trainers$: Observable<any>;
+  trainers$: Observable<{name: string}[]>;
 
   constructor(private trainersService: TrainersService) {
     this.trainers$ = this.trainersService.trainers$;

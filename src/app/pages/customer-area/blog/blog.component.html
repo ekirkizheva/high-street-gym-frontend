@@ -1,1 +1,42 @@
-<p>blog works!</p>
+<ng-container *ngIf="blog$ | async as blogs">
+  <div
+    *ngFor="let blog of blogs"
+    class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4"
+  >
+    <p
+      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      {{ blog.user?.firstName || "Unnamed" }}
+      {{ blog.user?.lastName || "User" }}
+    </p>
+    <p class="mb-2 font-normal text-gray-700 dark:text-gray-400">
+      {{ blog.message }}
+    </p>
+    <p
+      class="flex justify-end font-normal text-xs italic text-gray-700 dark:text-gray-400"
+    >
+      {{ blog.date | date : "medium" }}
+    </p>
+  </div>
+
+  <form
+    [formGroup]="blogForm"
+    class="space-y-2 md:space-y-4"
+    (ngSubmit)="onSubmit()"
+  >
+    <label
+      for="message"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Your message</label
+    >
+    <textarea
+      formControlName="message"
+      id="message"
+      required="true"
+      rows="4"
+      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="Write your thoughts here..."
+    ></textarea>
+    <button type="submit" class="w-full secondary">Create new post</button>
+  </form>
+</ng-container>
