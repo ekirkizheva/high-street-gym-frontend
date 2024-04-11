@@ -36,7 +36,7 @@ export class IdentityService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<{access_token: string}>('/api/singin', {username, password}).pipe(
+    return this.http.post<{access_token: string}>('/api/signin', {username, password}).pipe(
       tap(({access_token}) => localStorage.setItem('auth', access_token)), 
       tap(({access_token}) => this.user.next(new JwtHelperService().decodeToken(access_token) || {})),
       switchMap(() => this.user$),

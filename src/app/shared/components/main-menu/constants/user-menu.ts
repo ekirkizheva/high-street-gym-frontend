@@ -21,6 +21,18 @@ export const userNavMenu: MenuItem[] = [{
     mobileOnly: false
 },
 {
+    name: "My Bookings",
+    url: "/bookings",
+    mobileOnly: false,
+    authenticatedOnly: true
+},
+{
+    name: "Members Blog",
+    url: "/blog",
+    mobileOnly: false,
+    authenticatedOnly: true
+},
+{
     name: "Contact Us",
     url: "/contacts",
     mobileOnly: false

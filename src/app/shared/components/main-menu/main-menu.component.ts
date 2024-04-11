@@ -12,6 +12,8 @@ import { userNavMenu } from './constants/user-menu';
 })
 export class MainMenuComponent {
   menu$: Observable<MenuItem[]>;
+
+  isAuthenticated$: Observable<Boolean>;
   
   isMenuDropDownVisible = false;
 
@@ -19,6 +21,8 @@ export class MainMenuComponent {
     this.menu$ = this.identity.isAdmin$.pipe(
       map((isAdmin) => isAdmin ? adminNavMenu : userNavMenu)
     )
+
+    this.isAuthenticated$ = this.identity.user$.pipe(map((user) => !!user.username));
   }
 
   toggleMenu() {
