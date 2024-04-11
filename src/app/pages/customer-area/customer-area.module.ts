@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TimetableComponent } from './timetable/timetable.component';
     NotFoundComponent,
     ClassesComponent,
     TrainersComponent,
-    TimetableComponent
+    TimetableComponent,
+    BlogComponent
   ],
   imports: [
     CommonModule,

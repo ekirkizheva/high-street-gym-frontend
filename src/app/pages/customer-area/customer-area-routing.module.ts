@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { memberGuard } from 'src/app/core/guards/member.guard';
 import { AccountComponent } from './account/account.component';
 import { ClassesComponent } from './classes/classes.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'classes', component: ClassesComponent },
   { path: 'trainers', component: TrainersComponent },
   { path: 'timetable', component: TimetableComponent },
+  { path: 'blog', component: TimetableComponent, canActivate: [memberGuard] },
   { path: 'account', component: AccountComponent },
   { path: 'contacts', component: ContactsComponent },
 ]
