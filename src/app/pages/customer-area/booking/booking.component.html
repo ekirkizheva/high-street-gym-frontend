@@ -1,5 +1,5 @@
-<div class="booking-container flex">
-  <div class="booking-events w-full m-4">
+<div class="booking-container flex flex-col md:flex-row">
+  <div class="booking-events w-full p-4">
     <h2>Your bookings</h2>
     <ng-container *ngIf="myBookings$ | async as bookings">
       <div
@@ -18,7 +18,7 @@
       </div>
     </ng-container>
   </div>
-  <div class="booking-datepicker w-96">
+  <div class="booking-datepicker w-96 p-4">
     <h2>Book your session</h2>
     <mat-card>
       <mat-calendar
