@@ -28,3 +28,5 @@ a, button {
 button:disabled {
     @apply text-white bg-gray-300 hover:bg-gray-300 rounded-lg px-5 py-2.5;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

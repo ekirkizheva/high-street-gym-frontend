@@ -1,1 +1,62 @@
-<p>booking works!</p>
+<div class="booking-container flex">
+  <div class="booking-events w-full m-4">
+    <h2>Your bookings</h2>
+    <ng-container *ngIf="myBookings$ | async as bookings">
+      <div
+        *ngFor="let booking of bookings"
+        class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4"
+      >
+        <p class="mb-2 font-normal text-gray-700 dark:text-gray-400">
+          You have a {{ booking.duration }} minsession with
+          <strong>{{ booking.trainer.name }}</strong> on:
+        </p>
+        <p
+          class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          {{ booking.date | date }} at {{ booking.time | time }}
+        </p>
+      </div>
+    </ng-container>
+  </div>
+  <div class="booking-datepicker w-96">
+    <h2>Book your session</h2>
+    <mat-card>
+      <mat-calendar
+        [dateFilter]="pastDatesFilter"
+        [(selected)]="date"
+        (selectedChange)="onChange()"
+      ></mat-calendar>
+
+      <mat-form-field>
+        <mat-label>Select time</mat-label>
+        <mat-select [(ngModel)]="time" (ngModelChange)="onChange()">
+          <mat-option *ngFor="let time of timeOfTheDay" [value]="time.time">{{
+            time.label
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <ng-container *ngIf="availability$ | async as availability">
+        <mat-form-field>
+          <mat-label>Select trainer</mat-label>
+          <mat-select [(ngModel)]="trainer" (ngModelChange)="onChange()">
+            <mat-option
+              *ngFor="let trainer of availability"
+              [value]="trainer.id"
+              >{{ trainer.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          type="submit"
+          class="w-full secondary"
+          [disabled]="!trainer"
+          (click)="makeBooking()"
+        >
+          Book a class
+        </button>
+      </ng-container>
+    </mat-card>
+  </div>
+</div>

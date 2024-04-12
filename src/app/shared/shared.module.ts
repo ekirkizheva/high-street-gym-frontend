@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IconComponent } from './components/icon/icon.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { TimePipe } from './components/pipes/time.pipe';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { ProductFeaturesPipe } from './pipes/product-color.pipe';
@@ -19,7 +20,8 @@ import { ProductFeaturesPipe } from './pipes/product-color.pipe';
     IconComponent,
     SvgIconComponent,
     ProductCardComponent,
-    ProductFeaturesPipe
+    ProductFeaturesPipe,
+    TimePipe
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ProductFeaturesPipe } from './pipes/product-color.pipe';
     FooterComponent,
     IconComponent,
     ProductCardComponent,
-    ProductFeaturesPipe
+    ProductFeaturesPipe,
+    TimePipe
   ]
 })
 export class SharedModule { }
