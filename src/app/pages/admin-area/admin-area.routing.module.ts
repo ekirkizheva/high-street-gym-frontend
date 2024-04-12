@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChangeLogComponent } from './change-log/change-log.component';
-import { ManageProductsModifyComponent } from './manage-products-modify/manage-products-modify.component';
-import { ManageProductsComponent } from './manage-products/manage-products.component';
 
 import { ManageUsersModifyComponent } from './manage-users-modify/manage-users-modify.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { XmlUploadComponent } from './xml-upload/xml-upload.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
-    { path: 'manage-products', component: ManageProductsComponent},
-    { path: 'manage-products/add', component: ManageProductsModifyComponent},
-    { path: 'manage-products/:id', component: ManageProductsModifyComponent},
     { path: 'manage-users', component: ManageUsersComponent},
     { path: 'manage-users/add', component: ManageUsersModifyComponent},
     { path: 'manage-users/:id', component: ManageUsersModifyComponent},
-    { path: 'change-log', component: ChangeLogComponent}
+    { path: 'xml-upload', component: XmlUploadComponent}
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

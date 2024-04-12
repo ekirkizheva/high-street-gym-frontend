@@ -6,13 +6,18 @@ export const adminNavMenu: MenuItem[] = [{
     mobileOnly: false
 },
 {
-    name: "Products",
-    url: "/products",
+    name: "Trainers",
+    url: "/trainers",
     mobileOnly: false
 },
 {
-    name: "Manage Products",
-    url: "/admin/manage-products",
+    name: "Timetable",
+    url: "/timetable",
+    mobileOnly: false
+},
+{
+    name: "Upload XML Documents",
+    url: "/admin/xml-upload",
     mobileOnly: false
 },
 {
@@ -21,22 +26,7 @@ export const adminNavMenu: MenuItem[] = [{
     mobileOnly: false
 },
 {
-    name: "Change Log",
-    url: "/admin/change-log",
-    mobileOnly: false
-},
-{
     name: "Login",
     url: "/login",
-    mobileOnly: true
-},
-{
-    name: "Shortlist",
-    url: "/shortist",
-    mobileOnly: true
-},
-{
-    name: "Shopping Cart",
-    url: "/cart",
     mobileOnly: true
 }];
