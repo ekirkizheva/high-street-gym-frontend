@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { memberGuard } from 'src/app/core/guards/member.guard';
 import { AccountComponent } from './account/account.component';
 import { BlogComponent } from './blog/blog.component';
+import { BookingComponent } from './booking/booking.component';
 import { ClassesComponent } from './classes/classes.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'trainers', component: TrainersComponent },
   { path: 'timetable', component: TimetableComponent },
   { path: 'blog', component: BlogComponent, canActivate: [memberGuard] },
+  { path: 'booking', component: BookingComponent, canActivate: [memberGuard] },
   { path: 'account', component: AccountComponent },
   { path: 'contacts', component: ContactsComponent },
 ]

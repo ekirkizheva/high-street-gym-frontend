@@ -1,4 +1,12 @@
 <ng-container *ngIf="timetable$ | async as timetable">
+  <strong> Level Color Codes: </strong>
+  <br />
+  <span class="beginner">Beginner Level</span>
+  <br />
+  <span class="intermediate">Intermediate Level</span>
+  <br />
+  <span class="advanced">Advanced Level</span>
+  <br />
   <table>
     <thead>
       <tr>
@@ -9,7 +17,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let time of timeOfTheDay">
-        <td *ngFor="let day of daysOfWeek">
+        <td
+          *ngFor="let day of daysOfWeek"
+          [class]="getLevel(timetable, day.id, time.time)"
+        >
           <ng-container *ngIf="day.id === 0"> {{ time.label }} </ng-container>
           <ng-container *ngIf="day.id !== 0">
             <div
@@ -19,8 +30,9 @@
               "
             >
               {{ event.duration }}min
-              <strong>{{ event.class.name }}</strong> with
-              {{ event.trainer.name }} <br />[{{ event.level }}]
+              <strong>{{ event.class.name }}</strong>
+              <br />
+              {{ event.trainer.name }}
             </div>
           </ng-container>
         </td>

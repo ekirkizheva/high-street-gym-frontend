@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { TrainersComponent } from './trainers/trainers.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TrainersComponent } from './trainers/trainers.component';
     ClassesComponent,
     TrainersComponent,
     TimetableComponent,
-    BlogComponent
+    BlogComponent,
+    BookingComponent
   ],
   imports: [
     CommonModule,

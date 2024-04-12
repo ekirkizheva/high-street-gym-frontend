@@ -24,4 +24,8 @@ export class TimetableComponent {
     return timetable.find(({ weekday, time }) => (weekday === d && time === t));
   }
 
+  getLevel(timetable:TimetableEvent[], d: number, t: number): string {
+    return this.getEvent(timetable, d, t)?.level.toLocaleLowerCase() || 'none';
+  }
+
 }

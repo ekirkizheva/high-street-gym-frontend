@@ -22,7 +22,7 @@ export const userNavMenu: MenuItem[] = [{
 },
 {
     name: "My Bookings",
-    url: "/bookings",
+    url: "/booking",
     mobileOnly: false,
     authenticatedOnly: true
 },
