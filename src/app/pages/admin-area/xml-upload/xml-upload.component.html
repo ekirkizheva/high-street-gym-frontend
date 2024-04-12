@@ -6,7 +6,7 @@
   </p>
   <div class="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
     <input
-      (change)="onTrainerFileSelected($event)"
+      (change)="onFileSelected($event, 'trainer')"
       type="file"
       class="w-full text-black text-base bg-gray-100 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded"
     />
@@ -18,7 +18,7 @@
     *ngIf="!trainerUploaded"
     type="submit"
     class="primary"
-    (click)="uploadTrainer()"
+    (click)="uploadFile('trainer')"
   >
     Upload
   </button>
@@ -36,7 +36,7 @@
   </p>
   <div class="mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
     <input
-      (change)="onscheduledClassFileSelected($event)"
+      (change)="onFileSelected($event, 'class')"
       type="file"
       class="w-full text-black text-base bg-gray-100 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded"
     />
@@ -48,7 +48,7 @@
     *ngIf="!scheduledClassUploaded"
     type="submit"
     class="primary"
-    (click)="uploadClass()"
+    (click)="uploadFile('class')"
   >
     Upload
   </button>

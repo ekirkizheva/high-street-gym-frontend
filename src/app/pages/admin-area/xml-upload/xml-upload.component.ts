@@ -19,44 +19,27 @@ export class XmlUploadComponent {
   scheduledClassUploaded = false;
 
   constructor(private http: HttpClient) {
-
   }
 
-  onTrainerFileSelected(event: any) {
-    this.trainerUploaded = false;
+  onFileSelected(event: any, type: 'trainer' | 'class') {
+    const formData = type === 'trainer' ? this.trainerFormData : this.scheduledClassFromData;
+    type === 'trainer' ? this.trainerUploaded = false : this.scheduledClassUploaded = false;
+
     const file:File = event.target.files[0];
     if (file) {
-        this.trainerFormData.delete('file');
-        this.trainerFormData.append('file', file);
+      formData.delete('file');
+      formData.append('file', file);
     }
   }
 
-  onscheduledClassFileSelected(event: any) {
-    this.scheduledClassUploaded = false;
-    const file:File = event.target.files[0];
-    if (file) {
-        this.scheduledClassFromData.delete('file');
-        this.scheduledClassFromData.append('file', file);
-    }
-  }
-
-  uploadTrainer(){
-    this.http.post('/api/admin/trainer', this.trainerFormData).pipe(
+  uploadFile(type: 'trainer' | 'class') {
+    const formData = type === 'trainer' ? this.trainerFormData : this.scheduledClassFromData;
+    this.http.post(`/api/admin/${type}`, formData).pipe(
       take(1),
       catchError((error) => {
-        this.trainerErrors = error;
+        type === 'trainer' ? this.trainerErrors = error : this.scheduledClassErrors = error;
         return error;
       })
-    ).subscribe(() => { this.trainerUploaded = true });
-  }
-
-  uploadClass(){
-    this.http.post('/api/admin/class', this.scheduledClassFromData).pipe(
-      take(1),
-      catchError((error) => {
-        this.scheduledClassErrors = error;
-        return error;
-      })
-    ).subscribe(() => { this.scheduledClassUploaded = true });
+    ).subscribe(() => { type === 'trainer' ? this.trainerUploaded = true : this.scheduledClassUploaded = true; });
   }
 }
