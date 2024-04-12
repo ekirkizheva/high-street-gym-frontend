@@ -40,6 +40,8 @@ export class XmlUploadComponent {
         type === 'trainer' ? this.trainerErrors = error : this.scheduledClassErrors = error;
         return error;
       })
-    ).subscribe(() => { type === 'trainer' ? this.trainerUploaded = true : this.scheduledClassUploaded = true; });
+    ).subscribe(() => { 
+      type === 'trainer' ? this.trainerErrors = undefined : this.scheduledClassErrors = undefined;
+      type === 'trainer' ? this.trainerUploaded = true : this.scheduledClassUploaded = true; });
   }
 }
